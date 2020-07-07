@@ -1,0 +1,83 @@
+@import url("http://fonts.googleapis.com/css?family=Oswald:300,400:latin,latin-ext");
+
+body{
+    font-family:'Oswald',arial narrow,sans-serif;
+    background-color: lightgrey;
+}
+
+
+.navbar-form input,
+.form-inline input {
+  width: auto;
+}
+
+#collapse navbar-collapse {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background-color: #111166;
+  color: #fff;
+  margin-bottom: 0;
+  border-width: 0;
+}
+
+#Header {
+  background-color: rgb(1, 1, 58);
+  height: 150px;
+  width: 100%;
+}
+
+#Header h1 {
+  font-size: 55px;
+  line-height: 1;
+  color: white;
+  padding-top: 30px;
+  padding-left: 55px;
+}
+
+#totalSignup {
+  border-style: ridge;
+  border-color: #3b5998;
+  letter-spacing: 0.08em;
+  background-color: #111166;
+  color: #fff;
+  margin-bottom: 0;
+  border-width: 5px;
+}
+
+#lF {
+    /* position: fixed; */
+    /* z-index: 1; */
+   margin-top: -35px; 
+}
+
+.cardImg {
+  height: 280px;
+  width: 200px;
+}
+
+.btn-twitter {
+  background-color: #4099ff;
+  color: #fff;
+}
+.btn-facebook {
+  background-color: #3b5998;
+  color: #fff;
+}
+.btn-google-plus {
+  background-color: #d34836;
+  color: #fff;
+}
+
+.btn-twitter:hover {
+  background-color: #3088ff;
+  color: #62bbff;
+}
+.btn-facebook:hover {
+  background-color: #2a4998;
+  color: #4c6bba;
+}
+.btn-google-plus:hover {
+  background-color: #c23836;
+  color: #e45a58;
+}

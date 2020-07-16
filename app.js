@@ -1,35 +1,37 @@
 // Basic server syntax is below :
 
 const express = require("express");
-
 const app = new express();
 
 const nav =[
-  { link: "/signedIn/home", name: "User Home" },
+  { link: "/signedIn", name: "User Home" },
   { link: "/authors", name: "Authors" },
-  { link: "/addbooks", name: "Add Books" },
-  { link: "/addauthors", name: "Add Authors" }
+  { link: "/admin", name: "Admin" }
+  
 ];
 
-const booksRouter = require('./src/routes/bookRouter')(nav);
 const signUpRouter = require('./src/routes/signUpRouter');
 const authRouter = require('./src/routes/authRouter')(nav);
 const signedInRouter = require('./src/routes/signedInRouter')(nav);
-const addauthRouter =  require('./src/routes/addauthRouter')(nav);
-const addbookRouter = require('./src/routes/addbookRouter')(nav);
 
+const loginRouter = require('./src/routes/loginRouter');
+const adminRouter = require('./src/routes/adminRouter')(nav);
+
+app.use(express.urlencoded({extended:true})); // to access any type of data and its a middleware
 app.use(express.static("./public")); // after giving this only we will be able to access the images, css, js files
+
 
 app.set("view engine", "ejs"); // set the view engine for ejs implementation
 app.set("views", "./src/views"); // inside ejs defn - variable called views will have all the ejs files
-//Route definition
 
-app.use("/more", booksRouter);
+//Route definition
+app.use("/admin", adminRouter);
 app.use("/signUp",signUpRouter);
 app.use("/authors",authRouter);
 app.use("/signedIn",signedInRouter);
-app.use("/addauthors",addauthRouter);
-app.use("/addbooks", addbookRouter);
+app.use("/login", loginRouter);
+
+
 
 app.get("/", function (req, res) {
   res.render("index", {

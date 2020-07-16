@@ -62,7 +62,7 @@
 
             <!-- Here "Modal" class is used that will show the page as a pop up in the same page  -->
             <li class="nav-item">
-              <a class="nav-link" data-toggle="modal" href="#loginModal " style="padding-left: 30px;"
+              <a class="nav-link"  href="/login " style="padding-left: 30px;"
                 >Login</a
               >
           
@@ -110,7 +110,7 @@
             <div class="carousel-inner">
               <div class="carousel-item active">
                 <img
-                  src="/images/Libmgmt1.jpeg"
+                  src="/images/books/Libmgmt1.jpeg"
                   class="d-block w-100"
                   alt="Angular"
                   style="height: 350px;"
@@ -118,7 +118,7 @@
               </div>
               <div class="carousel-item">
                 <img
-                  src="/images/Libmgmt2.jpeg"
+                  src="/images/books/Libmgmt2.jpeg"
                   class="d-block w-100"
                   alt="BootStrap"
                   style="height: 350px;"
@@ -126,7 +126,7 @@
               </div>
               <div class="carousel-item">
                 <img
-                  src="/images/Libmgmt3.jpeg"
+                  src="/images/books/Libmgmt3.jpeg"
                   class="d-block w-100"
                   alt="MongoDB"
                   style="height: 350px;"
@@ -174,9 +174,9 @@
           <div class="card" style="max-width: auto;">
             <div class="row no-gutters">
               <div class="col-md-4">
-                <a href="#loginModal" data-toggle="modal">
+                <a href="/login">
                   <img
-                    src="/images/<%=books[i].img%>"
+                    src="/images/books/<%=books[i].img%>"
                     class="card-img cardImg animated wobble infinite"
                     alt="<%=books[i].alt%>"
                     style="border-radius: 20%;"
@@ -215,8 +215,7 @@
                         data-parent="#accordionExample"
                       >
                         <a
-                          href="#loginModal"
-                          data-toggle="modal"
+                          href="/login"
                           style="text-decoration: none;"
                         >
                           <%=books[i].alink%>
@@ -236,73 +235,13 @@
         <div class="row mt-3">
           <div class="col-md-2 offset-md-10">
             <a
-              href="#loginModal"
-              data-toggle="modal"
+              href="/login"
+              
               class="btn btn-primary pull-right btnNext"
               style="float: right;"
             >
               More <i class="fas fa-arrow-right"></i>
             </a>
-          </div>
-        </div>
-      </div>
-
-      <!--  This is for the Login Page Modal content that should appear on the home page once Login button is clicked -->
-      <div class="modal" tabindex="-1" role="dialog" id="loginModal">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Login</h5>
-              <button
-                type="button"
-                class="close"
-                data-dismiss="modal"
-                aria-label="Close"
-              >
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-
-            <!-- Login button on click should call this modal page From here sign up can be diverted -->
-            <div class="modal-body">
-              <!-- <form class="px-4 py-3" action="/html/signedIn.html"> -->
-              <form class="px-4 py-3" action="/signedIn" method="GET">
-                <div class="form-group">
-                  <label for="userName">User Name</label>
-                  <input
-                    type="text"
-                    class="form-control"
-                    id="userName"
-                    name="userName"
-                    placeholder="User Name"
-                  />
-                </div>
-                <div class="form-group">
-                  <label for="loginPassword">Password</label>
-                  <input
-                    type="password"
-                    class="form-control"
-                    id="loginPassword"
-                    name="loginPassword"
-                    placeholder="Password"
-                  />
-                  <p>
-                    <small
-                      >Need Atleast One Uppercase, Number, Specialcharacter and
-                      minimum 8 characters</small
-                    >
-                  </p>
-                </div>
-                <button type="submit" class="btn btn-primary" onclick="return validateSignIn();"> Sign In</button>
-               
-                <button type="reset" class="btn btn-primary">Clear</button>
-              </form>
-
-              <!--  Sign up page should be launched from here  -->
-              <a class="dropdown-item" href="/signUp"
-                >New around here? Sign up</a
-              >
-            </div>
           </div>
         </div>
       </div>

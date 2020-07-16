@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%=title%></title>
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="/css/style.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.css"
+      integrity="sha256-2SjB4U+w1reKQrhbbJOiQFARkAXA5CGoyk559PJeG58="
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <header>
+      <nav
+        class="navbar navbar-expand-lg navbar-dark"
+        style="background-color: navy !important;"
+      >
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-toggle="collapse"
+          data-target="#navbarTogglerDemo01"
+          aria-controls="navbarTogglerDemo01"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+          <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <%for(i=0;i<nav.length;i++){%>
+            <li class="nav-item active">
+              <a
+                class="nav-link"
+                href="<%=nav[i].link%>"
+                style="padding-left: 30px;"
+                ><%=nav[i].name%> <i class="far fa-user"></i>
+                <span class="sr-only">(current)</span></a
+              >
+            </li>
+            <%}%>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="modal" href="#logOutModal" style="padding-left: 30px;"
+                >Logout <i class="fas fa-sign-out-alt"></i>
+              </a>
+
+              <div
+                class="modal bs-example-modal-sm"
+                tabindex="-1"
+                role="dialog"
+                aria-hidden="true"
+                id="logOutModal"
+              >
+                <div class="modal-dialog modal-sm">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h4>Logout <i class="fa fa-lock"></i></h4>
+                    </div>
+                    <div class="modal-body">
+                      <i class="fa fa-question-circle"></i> Are you sure you
+                      want to log-off?
+                    </div>
+                    <div class="modal-footer">
+                      <button
+                        onclick= "window.location.href ='/'";
+                        class="btn btn-primary btn-block"
+                        >Logout
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <div class="container-fluid" style="width: 100%;" id="Header">
+        <h1>Final Update Author Detail</h1>
+        <div
+          style="
+            margin-top: -82px;
+            margin-left: 70%;
+            height: 80px;
+            width: 300px;
+            color: royalblue;
+            background-color: navy;
+            border-radius: 10%;
+          "
+        >
+        <div>
+          <p>
+            Choose any desired language for translation :
+          </p>
+        </div>
+        <div id="google_translate_element"></div>
+      
+      </div>
+      </div>
+
+      <div class="container" id="lF">
+        <div class="accordion" id="accordionExample">
+
+          <form action="/admin/dbUpdateAuthor" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="_id" value="<%=auth._id%>"/>
+          
+          <div class="card" style="max-width: auto;">
+            <div class="row no-gutters">
+
+            <div class="col">
+              <label for="cardtitle">Card Title </label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="cardtitle"
+                name="cardtitle"
+                id="cardtitle"
+                value="<%=auth.cardtitle%>"
+                required
+              />
+            </div>
+
+            <div class="col">
+              <label for="cardtext">Card Text</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="cardtext"
+                id="cardtext"
+                name="cardtext"
+                value="<%=auth.cardtext%>"
+                required
+              />
+            </div>
+          </div>
+
+
+            <div class="row">
+              <div class="col">
+              <label for="alink"> alink </label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="alink"
+                id="alink"
+                name="alink"
+                value="<%=auth.alink%>"
+              />
+            </div>
+          </div>
+            <div class="row">
+              <div class="col">
+              <label for="alt"> alt </label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="alt"
+                id="alt"
+                name="alt"
+                value="<%=auth.alt%>"
+              />
+            </div>
+          </div>
+            <div class="row">
+              <div class="col">
+              <label for="cardid">cardid</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="cardid"
+                id="cardid"
+                name="cardid"
+                value="<%=auth.cardid%>"
+                readonly
+              />
+            </div>
+          </div>
+            <div class="row">
+              <div class="col">
+              <label for="alink">textmuted</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="textmuted"
+                id="textmuted"
+                name="textmuted"
+                value="<%=auth.textmuted%>"
+              />
+            </div>
+          </div>
+            <div class="row">
+              <div class="col">
+              <label for="datatarget"> datatarget </label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="datatarget"
+                id="datatarget"
+                name="datatarget"
+                value="<%=auth.datatarget%>"
+                readonly
+              />
+            </div>
+          </div>
+            <div class="row">
+              <div class="col">
+              <label for="ariacontrols">ariacontrols</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="ariacontrols"
+                id="ariacontrols"
+                name="ariacontrols"
+                value="<%=auth.ariacontrols%>"
+                readonly
+              />
+            </div>
+          </div>
+            <div class="row">
+              <div class="col">
+              <label for="buttons1">buttons1</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="buttons1"
+                id="buttons1"
+                name="buttons1"
+                value="<%=auth.buttons1%>"
+                readonly
+              />
+            </div>
+          </div>
+            <div class="row">
+              <div class="col">
+              <label for="id">id</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="id"
+                id="id"
+                name="id"
+                value="<%=auth.id%>"
+                readonly
+              />
+            </div>
+          </div>
+            <div class="row">
+              <div class="col">
+              <label for="arialabelled">arialabelled</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="arialabelled"
+                id="arialabelled"
+                name="arialabelled"
+                value="<%=auth.arialabelled%>"
+                readonly
+              />
+            </div>
+          </div>
+            <div class="row">
+              <div class="col">
+              <label for="detailText">detailText</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="detailText"
+                id="detailText"
+                name="detailText"
+                value="<%=auth.detailText%>"
+              />
+            </div>
+          </div>
+
+          
+          <div class="row" style="margin-top: 20px; padding-left: 18px; width: 1050px; border: none;" id="img">
+            <label for="upload"> Upload auth Image </label>
+            <div class="form-control input-group custom-file" style="border: none;" enctype="multipart/form-control">
+            
+              <!-- <input type="file" id="img" multiple size="50" style="border: none;" name="img" accept="image/*" value="/images/auths/<%=auth.img%>" required> -->
+              <input type="file" id="img" multiple size="50" style="border: none;" name="img" accept="image/*" required>
+            </div>
+          </div>
+
+
+            <br>
+            <div class="row">
+              <div class="col-sm-2">
+                <button class="btn btn-success" type="submit">
+                  Update
+                </button>
+              </div>
+              <div class="col-sm-2">
+                <button class="btn btn-secondary" type="reset">
+                  Reset
+                </button>
+              </div>
+            </div>
+
+          </div>
+          </form>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="container mt-5" id="footer">
+        <div class="row">
+          <div class="col col-sm-12">
+            <h1>Follow Us</h1>
+            <div class="btn-group">
+              <a class="btn btn-twitter btn-lg" href="https://twitter.com/explore" target="_blank"
+                ><i class="icon-twitter icon-large"></i> Twitter</a
+              >
+              <a class="btn btn-facebook btn-lg" href="https://www.facebook.com/" target="_blank"
+                ><i class="icon-facebook icon-large"></i> Facebook</a
+              >
+              <a class="btn btn-google-plus btn-lg" href="https://www.google.com/" target="_blank"
+                ><i class="icon-google-plus icon-large"></i> Google</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-6">
+            <ul class="list-inline">
+              <li><i class="icon-facebook icon-2x"></i></li>
+              <li><i class="icon-twitter icon-2x"></i></li>
+              <li><i class="icon-google-plus icon-2x"></i></li>
+              <li><i class="icon-pinterest icon-2x"></i></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+   
+   <script>
+     //For Language translate in the header file
+
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement(
+    {
+      pageLanguage: "en",
+      layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
+    },
+    "google_translate_element"
+  );
+}
+   </script>
+
+  </body>
+</html>

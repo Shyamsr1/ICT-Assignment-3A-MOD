@@ -77,6 +77,7 @@ function validateSignup() {
 // Sign In page javaScript validation
 
 function validateSignin() {
+  console.log("Login page entered");
   let userName1 = document.getElementById("userName").value;
   let password1 = document.getElementById("loginPassword").value;
   let passwordRegEx = new RegExp(

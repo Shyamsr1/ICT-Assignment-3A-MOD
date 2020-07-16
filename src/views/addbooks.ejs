@@ -90,7 +90,7 @@
     </header>
     <main>
       <div class="container-fluid" style="width: 100%;" id="Header">
-        <h1>Add Author Details</h1>
+        <h1>Add Book Details</h1>
         <div
           style="
             margin-top: -82px;
@@ -114,52 +114,182 @@
 
       <div class="container card" id="lF" style="max-width: auto;">
         <div class="card-body">
-          <h5 class="card-title">Add Authors Details Form</h5>
-          <form action="/signedIn" name="addbookssignedIn" id="addbookform">
+          <h5 class="card-title">Add Book Details Form</h5>
+
+         
+          <form action="/admin/addbooks/addbook" name="addbookssignedIn" id="addbookform" method="POST" enctype="multipart/form-data">
             <div class="container" id="addbookdetail1">
               <div class="row">
 
                 <div class="col">
-                  <label for="title">Book Title </label>
+                  <label for="cardtitle">Book Title </label>
                   <input
                     type="text"
                     class="form-control"
-                    placeholder="title"
-                    name="title"
-                    id="title"
+                    placeholder="Booktitle"
+                    name="cardtitle"
+                    id="cardtitle"
+                    required
                   />
                 </div>
 
                 <div class="col">
-                  <label for="authorname"> Author Name </label>
+                  <label for="cardtext">Book Description</label>
                   <input
                     type="text"
                     class="form-control"
-                    placeholder="authorname"
-                    id="authorname"
-                    name="authorname"
+                    placeholder="BookDescription"
+                    id="cardtext"
+                    name="cardtext"
+                    
                   />
                 </div>
               </div>
                 <div class="row">
                   <div class="col">
-                  <label for="genre"> Genre </label>
+                  <label for="alink"> Brief Introduction </label>
                   <input
                     type="text"
                     class="form-control"
-                    placeholder="genre"
-                    id="genre"
-                    name="genre"
+                    placeholder="BriefIntroduction"
+                    id="alink"
+                    name="alink"
+                  />
+                </div>
+              </div>
+                <div class="row">
+                  <div class="col">
+                  <label for="alt">AlternateImageText</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="AlternateImageText"
+                    id="alt"
+                    name="alt"
+                  />
+                </div>
+              </div>
+                <div class="row">
+                  <div class="col">
+                  <label for="cardid">HeadingForAccordionWorking</label>
+                  <small>Need to give a text like : "headingOne"</small>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Give a text like : 'headingOne'"
+                    id="cardid"
+                    name="cardid"
+                    onkeyup="sync()"
+                    required
+                  />
+                </div>
+              </div>
+                <div class="row">
+                  <div class="col">
+                  <label for="textmuted">OneLinerUpdateText</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="OneLinerUpdateText"
+                    id="textmuted"
+                    name="textmuted"
+                  />
+                </div>
+              </div>
+                <div class="row">
+                  <div class="col">
+                  <label for="datatarget">ProvideDatatargetForAccordion</label>
+                  <small>Need to give a text like = #collapseOne for Accordion working</small>
+                  <input
+                  type="text"
+                  class="form-control"
+                  placeholder="Provide a value like #collapseOne"
+                  id="datatarget"
+                  name="datatarget"
+                  required
+                  />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col">
+                  <label for="ariacontrols">AccordionLinkforDataTarget</label>
+                  <small>Need to give same text like in ProvideDatatargetForAccordion without # like = collapseOne for Accordion working</small>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Give a value like 'collapseOne' without #"
+                    id="ariacontrols"
+                    name="ariacontrols"
+                    onkeyup="sync()"
+                    required
+                  />
+                </div>
+              </div>
+              
+              <div class="row">
+                <div class="col">
+                <label for="detailText">DetailedDescriptionOfBook</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="DetailedDescriptionOfBook"
+                  id="detailText"
+                  name="detailText"
+                />
+              </div>
+            </div>
+
+                <div class="row">
+                  <div class="col">
+                  <label for="arialabelled">arialabelled</label>
+                  <input
+                    type="text"
+                    class="form-control"
+                    placeholder="arialabelled"
+                    id="arialabelled"
+                    name="arialabelled"
+                    readonly
                   />
                 </div>
               </div>
 
-              <div class="row" style="margin-top: 20px; padding-left: 18px; width: 1050px; border: none;">
-                <label for="upload"> Upload Author Image </label>
+              <div class="row">
+                <div class="col">
+                <label for="id">id</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  placeholder="id"
+                  id="id"
+                  name="id"
+                  readonly
+                />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col">
+              <label for="buttons1">ReadMore</label>
+              <input
+                type="text"
+                class="form-control"
+                placeholder="ReadMore"
+                id="buttons1"
+                name="buttons1"
+                value="Read More..."
+                readonly
+              />
+            </div>
+          </div>
+
+
+
+              <div class="row" style="margin-top: 20px; padding-left: 18px; width: 1050px; border: none;" id="img">
+                <label for="upload"> Upload Book Image </label>
                 <div class="form-control input-group custom-file" style="border: none;">
               
                   
-                    <input type="file" id="myFile" multiple size="50" style="border: none;">
+                    <input type="file" id="img" multiple size="50" style="border: none;" name="img" accept="image/*" required>
                 </div>
               </div>
 
@@ -172,23 +302,19 @@
                   </button>
 
                   <button
-                  type="button"
+                  type="submit"
+                  name="button"
                   onclick= "return addbookdetails1();";
                   class="btn btn-primary btn-sm"
                   >Add Book Details <i class="fas fa-save"></i>
                 </button>
 
-                <!-- </div> -->
+         
               </div>
             </div>
           </form>
-        </div>
-
-          <div id="showdiv">
-            
+        </div>     
           </div>
-
-
       </div>
     </main>
     <footer>

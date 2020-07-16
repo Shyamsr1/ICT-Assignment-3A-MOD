@@ -123,10 +123,11 @@
             <div class="row no-gutters">
               <div class="col-md-4">
                 <img
-                  src="/images/<%=sign1[i].img%>"
+                  src="/images/books/<%=sign1[i].img%>"
                   class="card-img cardImg"
                   alt="<%=sign1[i].alt%>"
                   style="border-radius: 20%;"
+                  id="img"
                 />
               </div>
               <div class="col-md-8">
@@ -155,7 +156,8 @@
                         aria-labelledby="<%=sign1[i].arialabelled%>"
                         data-parent="#accordionExample"
                       >
-                      <a href="/more/<%=i%>">
+                      <!-- <a href="/signedIn/<%=i%>"> -->
+                      <a href="/signedIn/<%=sign1[i]._id%>">
                         <%=sign1[i].alink%>
                       </a>
                       </div>
@@ -167,17 +169,7 @@
           </div>
             <%}%>
         </div>
-        <div class="row mt-3">
-          <div class="col-md-2 offset-md-10">
-            <a
-              href="/more"
-              class="btn btn-primary pull-right btnNext"
-              style="float: right;"
-            >
-              See More <i class="fas fa-arrow-right"></i>
-            </a>
-          </div>
-        </div>
+
       </div>
     </main>
 
